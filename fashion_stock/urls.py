@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from trial_app.views import test_view, test_view_int, another_test_view
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', test_view),
+    path('new_test/<str:test_str>', another_test_view, {'sample': 'some string'}),
+    path('new_test/<int:test_int>', test_view_int),
 ]
